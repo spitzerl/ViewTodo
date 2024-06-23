@@ -14,9 +14,11 @@
         <!-- Liste des todo -->
         <v-list class="bg-transparent">
             <v-list-item v-for="todo in todos" :key="todo.id" class="bg-transparent">
-                <v-card class="w-100 rounded-lg bg-grey-lighten-3">
+                <v-card class="w-100 rounded-lg bg-primary">
                     <v-card-text class="d-flex justify-space-between align-center">
+                        <!-- Titre-->
                         <v-list-item-title>{{ todo.text }}</v-list-item-title>
+                        <!-- Bouton delete -->
                         <v-btn icon @click="removeTodo(todo)">
                             <v-icon>mdi-delete</v-icon>
                         </v-btn>
@@ -36,13 +38,16 @@
     const newTodo = ref('')
     const todos = ref([])
 
-    // Charger les todos depuis localStorage au démarrage de l'application
+    // On charge les todos depuis le cache du navigateur
     const savedTodos = localStorage.getItem('todos')
+    // Si on trouve des todos dans le cache, on les charge
     if (savedTodos) {
         todos.value = JSON.parse(savedTodos)
         // Mettre à jour l'id pour qu'il continue à partir du dernier id utilisé
         id = todos.value.length > 0 ? todos.value[todos.value.length - 1].id + 1 : 0
-    } else {
+    }
+    // Sinon, on initialise les todos avec des valeurs par défaut
+    else {
         todos.value = [
             { id: id++, text: 'Apprendre le HTML' },
             { id: id++, text: 'Apprendre le JavaScript' },
@@ -50,11 +55,12 @@
         ]
     }
 
-    // Sauvegarder les todos dans localStorage chaque fois qu'ils changent
+    // On sauvegarde les todos dans le cache du navigateur à chaque modification
     watchEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos.value))
     })
 
+    // Fonction pour ajouter un todo
     function addTodo() {
         if (newTodo.value.trim() !== '') {
             todos.value.push({ id: id++, text: newTodo.value })
@@ -62,6 +68,7 @@
         }
     }
 
+    // Fonction pour supprimer un todo
     function removeTodo(todo) {
         todos.value = todos.value.filter((t) => t.id !== todo.id)
     }
