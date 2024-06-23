@@ -1,13 +1,12 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld />
+      <Navbar />
+      <ToDo />
     </v-main>
-
-    <AppFooter />
   </v-app>
 </template>
 
-<script setup>
-  //
-</script>
+<script setup></script>
+
+<style></style>
