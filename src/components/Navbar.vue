@@ -1,8 +1,8 @@
 <template>
     <v-app-bar :elevation="14">
-        <!-- <template v-slot:prepend>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-    </template> -->
+        <template v-slot:prepend>
+            <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        </template>
 
         <v-app-bar-title>View Todo</v-app-bar-title>
 
