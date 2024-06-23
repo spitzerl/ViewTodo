@@ -1,0 +1,16 @@
+{
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "es5",
+    "vueIndentScriptAndStyle": true,
+    "printWidth": 80,
+    "tabWidth": 4,
+    "overrides": [
+        {
+            "files": "*.vue",
+            "options": {
+                "parser": "vue"
+            }
+        }
+    ]
+}
