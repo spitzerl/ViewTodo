@@ -3,26 +3,15 @@
         <v-form @submit.prevent="addTodo">
             <v-row>
                 <v-col cols="9">
-                    <v-text-field
-                        v-model="newTodo"
-                        required
-                        placeholder="Nouvelle tâche"
-                        label="Nouvelle tâche"
-                    />
+                    <v-text-field v-model="newTodo" required placeholder="Nouvelle tâche" label="Nouvelle tâche" />
                 </v-col>
                 <v-col cols="3">
-                    <v-btn color="primary" @click="addTodo"
-                        >Ajouter une tâche</v-btn
-                    >
+                    <v-btn color="primary" @click="addTodo">Ajouter une tâche</v-btn>
                 </v-col>
             </v-row>
         </v-form>
         <v-list>
-            <v-list-item
-                v-for="todo in todos"
-                :key="todo.id"
-                class="d-flex align-center"
-            >
+            <v-list-item v-for="todo in todos" :key="todo.id" class="d-flex align-center">
                 <v-list-item-content>
                     <v-list-item-title>{{ todo.text }}</v-list-item-title>
                 </v-list-item-content>
