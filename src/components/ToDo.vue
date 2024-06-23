@@ -1,5 +1,6 @@
 <template>
     <v-container>
+        <!-- Formulaire pour ajouter un élément à la liste -->
         <v-form @submit.prevent="addTodo">
             <v-row>
                 <v-col cols="9">
@@ -10,12 +11,13 @@
                 </v-col>
             </v-row>
         </v-form>
+        <!-- Liste des todo -->
         <v-list>
-            <v-list-item v-for="todo in todos" :key="todo.id" class="d-flex align-center">
-                <v-list-item-content>
+            <v-list-item v-for="todo in todos" :key="todo.id" class="d-flex mb-6 bg-surface-variant">
+                <v-list-item-content class="ma-2 pa-2 me-auto">
                     <v-list-item-title>{{ todo.text }}</v-list-item-title>
                 </v-list-item-content>
-                <v-list-item-action>
+                <v-list-item-action class="ma-2 pa-2">
                     <v-btn icon @click="removeTodo(todo)">
                         <v-icon>mdi-delete</v-icon>
                     </v-btn>
