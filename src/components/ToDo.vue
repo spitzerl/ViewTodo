@@ -3,14 +3,12 @@
         <!-- Formulaire pour ajouter un élément à la liste -->
         <v-form @submit.prevent="addTodo" class="mt-10">
             <v-row>
-                <v-col cols="10">
-                    <v-text-field v-model="newTodo" required placeholder="Nouvelle tâche" label="Nouvelle tâche" />
-                </v-col>
-                <v-col cols="2">
-                    <v-btn block prepend-icon="$plus" color="primary" @click="addTodo"> Ajouter </v-btn>
+                <v-col cols="12">
+                    <v-text-field v-model="newTodo" required placeholder="Nouvelle tâche" label="Nouvelle tâche" hint="Appuyez sur entrée pour ajouter à la liste" @keyup.enter="addTodo" />
                 </v-col>
             </v-row>
         </v-form>
+
         <!-- Liste des todo -->
         <v-list class="bg-transparent">
             <v-list-item v-for="todo in todos" :key="todo.id" class="bg-transparent">
