@@ -7,8 +7,16 @@
         <v-app-bar-title>View Todo</v-app-bar-title>
 
         <template v-slot:append>
-            <v-btn :icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'" @click="toggleTheme"></v-btn>
+            <v-btn :icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'" @click="onClick"></v-btn>
         </template>
     </v-app-bar>
 </template>
-<script setup></script>
+
+<script setup>
+    defineProps(['theme'])
+    const emit = defineEmits(['toggle-theme'])
+
+    function onClick() {
+        emit('toggle-theme')
+    }
+</script>
