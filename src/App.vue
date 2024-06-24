@@ -1,12 +1,21 @@
 <template>
-  <v-app>
-    <v-main>
-      <Navbar />
-      <ToDo />
-    </v-main>
-  </v-app>
+    <v-app :theme="theme">
+        <v-main>
+            <Navbar />
+            <ToDo />
+        </v-main>
+        <v-btn :prepend-icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'" text="Toggle Theme" slim @click="onClick"></v-btn>
+    </v-app>
 </template>
 
-<script setup></script>
+<script setup>
+    import { ref } from 'vue'
+
+    const theme = ref('light')
+
+    function onClick() {
+        theme.value = theme.value === 'light' ? 'dark' : 'light'
+    }
+</script>
 
 <style></style>
